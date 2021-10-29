@@ -20,7 +20,7 @@ async function validateProject(req, res, next){
     try{
         const { name, description} = req.body
         if(!name || !description){
-            res.status(400).json({ message: 'Name and description are required'})
+            next({ status: 400, message: 'Name and description are required'})
         }else{
             next()
         }
@@ -28,7 +28,8 @@ async function validateProject(req, res, next){
         res.status(500).json({ message: 'problem adding new project to database'})
     }
 }
+
 module.exports = {
     validateProjectId,
     validateProject,
-}
+} 
