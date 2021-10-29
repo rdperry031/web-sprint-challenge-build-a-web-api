@@ -1,6 +1,5 @@
 // add middlewares here related to projects
 const Projects = require('./projects-model');
-const Actions = require('./projects-model');
 
 async function validateProjectId(req, res, next){
     try{
@@ -18,7 +17,7 @@ async function validateProjectId(req, res, next){
 
 async function validateProject(req, res, next){
     try{
-        const { name, description} = req.body
+        const { name, description, completed} = req.body
         if(!name || !description){
             next({ status: 400, message: 'Name and description are required'})
         }else{
