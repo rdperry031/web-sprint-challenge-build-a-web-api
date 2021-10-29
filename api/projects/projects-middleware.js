@@ -31,8 +31,8 @@ async function validateProject(req, res, next){
 async function validateUpdatedProject(req, res, next){
     try{
         const { name, description, completed} = req.body
-        if(!name || !description){
-            next({ status: 400, message: 'Name and description are required'})
+        if(!name || !description){ //<<<< if I include !completed, tests 8 and 9 fail, but 10 passes. If I remove !completed, tests 8 and 9 pass while 10 fails. I do not understand what I am missing. It should work, right?
+            next({ status: 400, message: 'Name, description, and completed are required'})
         }else{
             next()
         }

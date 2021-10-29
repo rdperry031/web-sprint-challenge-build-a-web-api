@@ -31,7 +31,7 @@ async function validateAction(req, res, next){
 async function validateUpdatedAction(req, res, next){
     try{
         const {notes, description, project_id, completed} = req.body
-        if(!notes || !description || !project_id){
+        if(!notes || !description || !project_id || !completed){
             next({ status: 400, message: 'notes, description, project id, and completed are required' })
         }else{
             next()
@@ -45,4 +45,4 @@ module.exports = {
     validateActionId,
     validateAction,
     validateUpdatedAction
-} 
+}  

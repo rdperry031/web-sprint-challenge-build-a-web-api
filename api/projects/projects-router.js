@@ -35,7 +35,7 @@ router.post('/', validateProject, async (req, res, next) => {
     }
 })
 
-router.put('/:id', validateUpdatedProject, validateProjectId, async (req, res, next) =>{
+router.put('/:id', validateProjectId, validateUpdatedProject, async (req, res, next) =>{
     try{
         const { id } = req.params
         const project = await Projects.update(id, req.body)
