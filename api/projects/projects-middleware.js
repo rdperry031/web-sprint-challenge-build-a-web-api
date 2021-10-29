@@ -5,7 +5,7 @@ async function validateProjectId(req, res, next){
     try{
         const project = await Projects.get(req.params.id)
         if(!project){
-            res.status(404).json({ message: `Project with id ${req.params.id} does not exist`})
+            next({ status: 400, message: `Project with id ${req.params.id} does not exist`})
         }else{
             req.project = project
             next()

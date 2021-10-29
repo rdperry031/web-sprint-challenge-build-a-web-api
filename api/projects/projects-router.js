@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router();
 
 const Projects = require('./projects-model');
-const Actions = require('../actions/actions-model');
 const { 
     validateProject,
     validateProjectId,
